@@ -1,5 +1,7 @@
 # ODM Spec
 
+[![Build Status](https://travis-ci.org/alexanderkiel/odm-spec.svg?branch=master)](https://travis-ci.org/alexanderkiel/odm-spec)
+
 Clojure specs for [CDISC ODM][1] data structures.
 
 ## Usage
