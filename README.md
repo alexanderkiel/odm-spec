@@ -9,7 +9,7 @@ Clojure specs for [CDISC ODM][1] data structures.
 Add the following dependency to your project.
 
 ```clojure
-[org.clojars.akiel/odm-spec "0.1-SNAPSHOT"]
+[org.clojars.akiel/odm-spec "0.1-alpha1"]
 ```
 
 Require `[odm]` in your namespace.
