@@ -15,7 +15,10 @@
 ;; a instant in time, same as xs:dateTime
 (s/def ::date-time inst?)
 
-(s/def ::oid ::non-blank-string?)
+(s/def ::oid
+  (s/with-gen
+    (s/conformer #(s/conform ::non-blank-string? (when (string? %) (str/trim %))))
+    #(s/gen ::non-blank-string?)))
 
 (s/def ::subject-key ::non-blank-string?)
 
