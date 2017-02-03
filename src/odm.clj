@@ -28,3 +28,6 @@
 
 (s/def ::tx-type
   #{:insert :update :remove :upsert :context})
+
+(s/def ::data-type
+  u/data-types)

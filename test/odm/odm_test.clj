@@ -15,7 +15,7 @@
   (given-problems :odm.odm/file-type nil
                   [0 :pred] := #{:snapshot :transactional}
                   [0 :via] := [:odm.odm/file-type])
-  (given-problems :odm/file-type :foo
+  (given-problems :odm.odm/file-type :foo
                   [0 :pred] := #{:snapshot :transactional}
                   [0 :via] := [:odm.odm/file-type])
   (testing "generator is available"
