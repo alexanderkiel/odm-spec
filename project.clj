@@ -7,5 +7,6 @@
   :dependencies [[org.clojure/clojure "1.9.0-alpha14"]]
 
   :profiles {:dev
-             {:dependencies [[org.clojure/test.check "0.9.0"]
-                             [juxt/iota "0.2.2"]]}})
+             {:dependencies [[criterium "0.4.4"]
+                             [juxt/iota "0.2.2"]
+                             [org.clojure/test.check "0.9.0"]]}})
