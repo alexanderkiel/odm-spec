@@ -42,7 +42,7 @@
                      [#:odm.form-def
                          {:oid "F01"
                           :name "foo"
-                          :repeating false}]}]}]}
+                          :odm.def/repeating false}]}]}]}
 
       #:odm.file
           {:oid "F01"

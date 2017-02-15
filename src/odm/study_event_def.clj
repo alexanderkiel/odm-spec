@@ -6,6 +6,7 @@
             [odm]
             [odm.alias]
             [odm.data-formats :as df]
+            [odm.def]
             [odm.description]
             [odm.form-ref]
             [odm-spec.util :as u]))
@@ -15,9 +16,6 @@
 
 (s/def ::name
   ::df/name)
-
-(s/def ::repeating
-  boolean?)
 
 (s/def ::type
   #{
@@ -48,5 +46,5 @@
          #(u/distinct-order-numbers? %)))
 
 (s/def :odm/study-event-def
-  (s/keys :req [::oid ::name ::repeating ::type]
+  (s/keys :req [::oid ::name :odm.def/repeating ::type]
           :opt [::category :odm/description ::form-refs :odm/aliases]))

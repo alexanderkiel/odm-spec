@@ -52,7 +52,8 @@
 
 (s/def :odm/metadata-version
   (s/keys :req [::oid ::name]
-          :opt [:odm/include
+          :opt [::description
+                :odm/include
                 :odm/protocol
                 ::study-event-defs
                 ::form-defs

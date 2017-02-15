@@ -10,14 +10,14 @@
       #:odm.form-def
           {:oid "F01"
            :name "foo"
-           :repeating true}))
+           :odm.def/repeating true}))
 
   (testing "Duplicate item group ref OIDs"
     (given-problems :odm/form-def
       #:odm.form-def
           {:oid "F01"
            :name "foo"
-           :repeating false
+           :odm.def/repeating false
            :type :common
            :item-group-refs
            [#:odm.item-group-ref
@@ -34,7 +34,7 @@
       #:odm.form-def
           {:oid "F01"
            :name "foo"
-           :repeating false
+           :odm.def/repeating false
            :type :common
            :item-group-refs
            [#:odm.item-group-ref
@@ -53,7 +53,7 @@
       #:odm.form-def
           {:oid "F01"
            :name "foo"
-           :repeating false
+           :odm.def/repeating false
            :type :common
            :odm/aliases 1}
       [0 :path] := [:odm/aliases]

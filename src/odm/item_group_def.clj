@@ -1,4 +1,5 @@
 (ns odm.item-group-def
+  "3.1.1.3.5 - ItemGroupDef"
   (:require [clojure.spec :as s]
             [odm]
             [odm.alias]
@@ -14,9 +15,6 @@
 (s/def ::name
   ::df/name)
 
-(s/def ::repeating
-  boolean?)
-
 (s/def ::reference-data?
   boolean?)
 
@@ -26,7 +24,7 @@
          #(u/distinct-order-numbers? %)))
 
 (s/def :odm/item-group-def
-  (s/keys :req [::oid ::name ::repeating]
+  (s/keys :req [::oid ::name :odm.def/repeating]
           :opt [::reference-data? :odm.def/domain :odm.def/origin
                 :odm.def/purpose :odm.def/comment :odm/description
                 ::item-refs :odm/aliases]))

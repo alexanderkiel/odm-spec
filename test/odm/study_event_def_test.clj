@@ -10,7 +10,7 @@
       #:odm.study-event-def
           {:oid "SE01"
            :name "foo"
-           :repeating false
+           :odm.def/repeating false
            :type :common}))
 
   (testing "Invalid category"
@@ -18,7 +18,7 @@
       #:odm.study-event-def
           {:oid "SE01"
            :name "foo"
-           :repeating false
+           :odm.def/repeating false
            :type :common
            :category nil}
       [0 :path] := [:odm.study-event-def/category]
@@ -29,7 +29,7 @@
       #:odm.study-event-def
           {:oid "SE01"
            :name "foo"
-           :repeating false
+           :odm.def/repeating false
            :type :common
            :form-refs
            [#:odm.form-ref
@@ -46,7 +46,7 @@
       #:odm.study-event-def
           {:oid "SE01"
            :name "foo"
-           :repeating false
+           :odm.def/repeating false
            :type :common
            :form-refs
            [#:odm.form-ref
@@ -65,7 +65,7 @@
       #:odm.study-event-def
           {:oid "SE01"
            :name "foo"
-           :repeating false
+           :odm.def/repeating false
            :type :common
            :odm/aliases 1}
       [0 :path] := [:odm/aliases]

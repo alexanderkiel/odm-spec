@@ -17,3 +17,6 @@
 
 (s/def ::comment
   ::df/text)
+
+(s/def ::repeating
+  boolean?)

@@ -22,12 +22,12 @@
            [#:odm.form-def
                {:oid "F01"
                 :name "foo"
-                :repeating false}]
+                :odm.def/repeating false}]
            :item-group-defs
            [#:odm.item-group-def
                {:oid "IG01"
                 :name "foo"
-                :repeating false}]
+                :odm.def/repeating false}]
            :item-defs
            [#:odm.item-def
                {:oid "I01"
@@ -78,12 +78,12 @@
            [#:odm.study-event-def
                {:oid "SE01"
                 :name "foo"
-                :repeating false
+                :odm.def/repeating false
                 :type :common}
             #:odm.study-event-def
                 {:oid "SE01"
                  :name "foo"
-                 :repeating false
+                 :odm.def/repeating false
                  :type :common}]}
       [0 :path] := [:odm.metadata-version/study-event-defs]
       [0 :pred] := '(partial distinct-oids? :odm.study-event-def/oid)))
@@ -97,11 +97,11 @@
            [#:odm.form-def
                {:oid "F01"
                 :name "foo"
-                :repeating false}
+                :odm.def/repeating false}
             #:odm.form-def
                 {:oid "F01"
                  :name "foo"
-                 :repeating false}]}
+                 :odm.def/repeating false}]}
       [0 :path] := [:odm.metadata-version/form-defs]
       [0 :pred] := '(partial distinct-oids? :odm.form-def/oid)))
 
@@ -114,11 +114,11 @@
            [#:odm.item-group-def
                {:oid "IG01"
                 :name "foo"
-                :repeating false}
+                :odm.def/repeating false}
             #:odm.item-group-def
                 {:oid "IG01"
                  :name "foo"
-                 :repeating false}]}
+                 :odm.def/repeating false}]}
       [0 :path] := [:odm.metadata-version/item-group-defs]
       [0 :pred] := '(partial distinct-oids? :odm.item-group-def/oid)))
 
