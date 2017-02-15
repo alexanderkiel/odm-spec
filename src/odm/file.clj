@@ -8,6 +8,9 @@
             [odm.study]
             [odm-spec.util :as u]))
 
+(s/def ::description
+  ::df/text)
+
 (s/def ::type
   #{:snapshot :transactional})
 
@@ -60,4 +63,6 @@
 
 (s/def :odm/file
   (s/keys :req [::oid ::type ::creation-date-time]
-          :opt [::studies ::reference-data ::clinical-data]))
+          :opt [::studies ::reference-data ::clinical-data ::archival
+                ::description ::granularity  ::prior-oid ::originator
+                ::as-of-date-time ::odm-version ::source-system]))

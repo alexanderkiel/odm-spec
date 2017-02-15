@@ -4,6 +4,7 @@
             [odm]
             [odm.alias]
             [odm.data-formats :as df]
+            [odm.def]
             [odm.description]
             [odm.item-group-ref]
             [odm-spec.util :as u]))
@@ -14,14 +15,11 @@
 (s/def ::name
   ::df/name)
 
-(s/def ::repeating
-  boolean?)
-
 (s/def ::item-group-refs
   (s/and (s/coll-of :odm/item-group-ref :min-count 1)
          (partial u/distinct-oids? :odm.item-group-ref/item-group-oid)
          #(u/distinct-order-numbers? %)))
 
 (s/def :odm/form-def
-  (s/keys :req [::oid ::name ::repeating]
+  (s/keys :req [::oid ::name :odm.def/repeating]
           :opt [:odm/description ::item-group-refs :odm/aliases]))

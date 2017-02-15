@@ -7,6 +7,7 @@
             [odm]
             [odm.alias]
             [odm.data-formats :as df]
+            [odm.description]
             [odm-spec.util :as u]))
 
 (s/def ::oid

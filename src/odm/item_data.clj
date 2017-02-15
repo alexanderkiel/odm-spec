@@ -1,5 +1,5 @@
 (ns odm.item-data
-  "3.1.4.1.1.1 - ItemData"
+  "3.1.4.1.1.1.1.2 - ItemData"
   (:require [clojure.spec :as s]
             [odm]
             [odm.data-formats :as df]
@@ -28,6 +28,9 @@
 (s/def ::date-time-value
   ::df/date-time)
 
+(s/def ::boolean
+  boolean?)
+
 (defmacro item-data-spec* [value-spec & opts]
   `(s/keys :req [::item-oid ::data-type ~value-spec]
            :opt [:odm/tx-type ~@opts]))
@@ -45,6 +48,9 @@
 
 (defmethod item-data-spec :date-time [_]
   (item-data-spec* ::date-time-value))
+
+(defmethod item-data-spec :boolean [_]
+  (item-data-spec* ::boolean))
 
 (s/def :odm/item-data
   (s/multi-spec item-data-spec ::data-type))
