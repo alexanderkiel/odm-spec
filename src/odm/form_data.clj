@@ -18,7 +18,7 @@
   ::df/repeat-key)
 
 (s/def ::item-group-data
-  (s/and (s/coll-of :odm/item-group-data :min-count 1)
+  (s/and (s/coll-of :odm/item-group-data)
          (partial u/distinct-oid-repeat-key-pairs? ::igd/item-group-oid
                   ::igd/item-group-repeat-key)))
 

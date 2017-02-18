@@ -17,4 +17,4 @@
   (s/keys :req [::context ::name]))
 
 (s/def :odm/aliases
-  (s/coll-of :odm/alias :min-count 1))
+  (s/coll-of :odm/alias))

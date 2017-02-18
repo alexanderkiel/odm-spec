@@ -53,7 +53,7 @@
 ;; If no MeasurementUnitRef is present on the definition of a numeric Item, the
 ;; Item's value is scalar (i.e., a pure number).
 (s/def ::measurement-unit-refs
-  (s/and (s/coll-of :odm/measurement-unit-ref :min-count 1)
+  (s/and (s/coll-of :odm/measurement-unit-ref)
          (partial u/distinct-oids? :odm.measurement-unit-ref/measurement-unit-oid)))
 
 (defn- length-given-on-text-or-string? [{:keys [::data-type ::length]}]

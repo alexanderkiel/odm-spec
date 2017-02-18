@@ -21,4 +21,4 @@
   (s/keys :req [::context ::expression]))
 
 (s/def :odm/formal-expressions
-  (s/coll-of :odm/formal-expression :min-count 1))
+  (s/coll-of :odm/formal-expression))

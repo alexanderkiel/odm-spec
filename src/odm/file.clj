@@ -51,15 +51,15 @@
   (s/keys :req [::ss/name ::ss/version]))
 
 (s/def ::studies
-  (s/coll-of :odm/study :min-count 1))
+  (s/coll-of :odm/study))
 
 ;; A map of study OID to a map of metadata version OID to reference data.
 (s/def ::reference-data
-  (s/coll-of :odm/reference-data :min-count 1))
+  (s/coll-of :odm/reference-data))
 
 ;; A map of study OID to a map of metadata version OID to clinical data.
 (s/def ::clinical-data
-  (s/coll-of :odm/clinical-data :min-count 1))
+  (s/coll-of :odm/clinical-data))
 
 (s/def :odm/file
   (s/keys :req [::oid ::type ::creation-date-time]

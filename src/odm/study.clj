@@ -22,11 +22,11 @@
   ::df/name)
 
 (s/def ::measurement-units
-  (s/and (s/coll-of :odm/measurement-unit :min-count 1)
+  (s/and (s/coll-of :odm/measurement-unit)
          (partial u/distinct-oids? ::mu/oid)))
 
 (s/def ::metadata-versions
-  (s/and (s/coll-of :odm/metadata-version :min-count 1)
+  (s/and (s/coll-of :odm/metadata-version)
          (partial u/distinct-oids? ::v/oid)))
 
 (s/def :odm/study

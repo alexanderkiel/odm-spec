@@ -23,31 +23,31 @@
   ::df/text)
 
 (s/def ::study-event-defs
-  (s/and (s/coll-of :odm/study-event-def :min-count 1)
+  (s/and (s/coll-of :odm/study-event-def)
          (partial u/distinct-oids? ::se/oid)))
 
 (s/def ::form-defs
-  (s/and (s/coll-of :odm/form-def :min-count 1)
+  (s/and (s/coll-of :odm/form-def)
          (partial u/distinct-oids? ::f/oid)))
 
 (s/def ::item-group-defs
-  (s/and (s/coll-of :odm/item-group-def :min-count 1)
+  (s/and (s/coll-of :odm/item-group-def)
          (partial u/distinct-oids? ::ig/oid)))
 
 (s/def ::item-defs
-  (s/and (s/coll-of :odm/item-def :min-count 1)
+  (s/and (s/coll-of :odm/item-def)
          (partial u/distinct-oids? ::i/oid)))
 
 (s/def ::code-lists
-  (s/and (s/coll-of :odm/code-list :min-count 1)
+  (s/and (s/coll-of :odm/code-list)
          (partial u/distinct-oids? ::cl/oid)))
 
 (s/def ::condition-defs
-  (s/and (s/coll-of :odm/condition-def :min-count 1)
+  (s/and (s/coll-of :odm/condition-def)
          (partial u/distinct-oids? ::c/oid)))
 
 (s/def ::method-defs
-  (s/and (s/coll-of :odm/method-def :min-count 1)
+  (s/and (s/coll-of :odm/method-def)
          (partial u/distinct-oids? ::m/oid)))
 
 (s/def :odm/metadata-version

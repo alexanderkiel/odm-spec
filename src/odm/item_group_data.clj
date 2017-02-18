@@ -14,7 +14,7 @@
   ::df/repeat-key)
 
 (s/def ::item-data
-  (s/and (s/coll-of :odm/item-data :min-count 1)
+  (s/and (s/coll-of :odm/item-data)
          (partial u/distinct-oids? :odm.item-data/item-oid)))
 
 (s/def :odm/item-group-data

@@ -41,7 +41,7 @@
   ::df/text)
 
 (s/def ::form-refs
-  (s/and (s/coll-of :odm/form-ref :min-count 1)
+  (s/and (s/coll-of :odm/form-ref)
          (partial u/distinct-oids? :odm.form-ref/form-oid)
          #(u/distinct-order-numbers? %)))
 

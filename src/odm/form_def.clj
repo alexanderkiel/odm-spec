@@ -16,7 +16,7 @@
   ::df/name)
 
 (s/def ::item-group-refs
-  (s/and (s/coll-of :odm/item-group-ref :min-count 1)
+  (s/and (s/coll-of :odm/item-group-ref)
          (partial u/distinct-oids? :odm.item-group-ref/item-group-oid)
          #(u/distinct-order-numbers? %)))
 

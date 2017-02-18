@@ -17,7 +17,7 @@
             [odm-spec.util :as u]))
 
 (s/def ::study-event-refs
-  (s/and (s/coll-of :odm/study-event-ref :min-count 1)
+  (s/and (s/coll-of :odm/study-event-ref)
          (partial u/distinct-oids? :odm.study-event-ref/study-event-oid)
          #(u/distinct-order-numbers? %)))
 

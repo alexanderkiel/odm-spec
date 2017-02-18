@@ -19,7 +19,7 @@
   boolean?)
 
 (s/def ::item-refs
-  (s/and (s/coll-of :odm/item-ref :min-count 1)
+  (s/and (s/coll-of :odm/item-ref)
          (partial u/distinct-oids? :odm.item-ref/item-oid)
          #(u/distinct-order-numbers? %)))
 

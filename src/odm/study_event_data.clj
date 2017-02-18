@@ -23,7 +23,7 @@
   ::df/repeat-key)
 
 (s/def ::form-data
-  (s/and (s/coll-of :odm/form-data :min-count 1)
+  (s/and (s/coll-of :odm/form-data)
          (partial u/distinct-oid-repeat-key-pairs? ::fd/form-oid
                   ::fd/form-repeat-key)))
 

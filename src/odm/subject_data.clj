@@ -14,7 +14,7 @@
   ::df/subject-key)
 
 (s/def ::study-event-data
-  (s/and (s/coll-of :odm/study-event-data :min-count 1)
+  (s/and (s/coll-of :odm/study-event-data)
          (partial u/distinct-oid-repeat-key-pairs? ::sed/study-event-oid
                   ::sed/study-event-repeat-key)))
 
