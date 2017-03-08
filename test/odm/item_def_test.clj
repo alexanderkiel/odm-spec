@@ -40,7 +40,7 @@
       [0 :pred] := #{:text :integer :float :date :time :date-time :string
                      :boolean :double :hex-binary :base64-binary :hex-float
                      :base64-float :partial-date :partial-time
-                     :partial-date-time :duration-date-time :interval-datetime
+                     :partial-date-time :duration-date-time :interval-date-time
                      :incomplete-date-time :incomplete-date :incomplete-time
                      :uri}))
 

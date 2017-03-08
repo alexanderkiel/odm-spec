@@ -22,7 +22,7 @@
 (s/def ::data-type
   #{:text :integer :float :date :time :date-time :string :boolean :double
     :hex-binary :base64-binary :hex-float :base64-float :partial-date
-    :partial-time :partial-date-time :duration-date-time :interval-datetime
+    :partial-time :partial-date-time :duration-date-time :interval-date-time
     :incomplete-date-time :incomplete-date :incomplete-time :uri})
 
 ;; The length attribute is required when data type is text or string, optional
