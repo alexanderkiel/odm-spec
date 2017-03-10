@@ -5,7 +5,7 @@
   example, reference data might include lab normal ranges."
   (:require [clojure.spec :as s]
             [odm.data-formats :as df]
-            [odm.item-group-data]
+            [odm.item-group-data :as igd]
             [odm.metadata-version]
             [odm.study]
             [odm-spec.util :as u]))
@@ -20,7 +20,9 @@
   :odm.metadata-version/oid)
 
 (s/def ::item-group-data
-  (s/map-of ::df/oid-ref :odm/item-group-data))
+  (s/and (s/coll-of :odm/item-group-data)
+         (partial u/distinct-oid-repeat-key-pairs? ::igd/item-group-oid
+                  ::igd/item-group-repeat-key)))
 
 (s/def :odm/reference-data
   (s/keys :req [::study-oid ::metadata-version-oid]))
