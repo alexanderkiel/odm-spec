@@ -7,13 +7,13 @@
 (deftest description-test
   (testing "Valid descriptions"
     (are [x] (s/valid? :odm/description x)
-      {:default "foo"}))
+      [{:lang :default :text "foo"}]))
 
   (testing "Invalid description key"
     (given-problems (s/keys :req [:odm/description])
       {:odm/description nil}
       [0 :path] := [:odm/description]
-      [0 :pred] := 'map?))
+      [0 :pred] := 'coll?))
 
   (testing "Generator available"
     (is (doall (s/exercise :odm/description 1)))))

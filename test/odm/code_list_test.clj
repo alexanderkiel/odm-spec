@@ -15,7 +15,7 @@
            :code-list-items
            [#:odm.code-list
                {:coded-value "1"
-                :decode {:default "yes"}}]}))
+                :decode [{:lang :default :text "yes"}]}]}))
 
   (testing "Missing code list and enumerated item"
     (given-problems :odm/code-list
@@ -36,11 +36,11 @@
            :code-list-items
            [#:odm.code-list
                {:coded-value "1"
-                :decode {:default "yes"}}]
+                :decode [{:lang :default :text "yes"}]}]
            :enumerated-items
            [#:odm.code-list
                {:coded-value "2"
-                :decode {:default "no"}}]}
+                :decode [{:lang :default :text "no"}]}]}
       [0 :path] := []
       [0 :pred] := '(not (and (contains? % :odm.code-list/code-list-items)
                               (contains? % :odm.code-list/enumerated-items)))))
@@ -54,10 +54,10 @@
            :code-list-items
            [#:odm.code-list
                {:coded-value "1"
-                :decode {:default "yes"}}
+                :decode [{:lang :default :text "yes"}]}
             #:odm.code-list
                 {:coded-value "1"
-                 :decode {:default "no"}}]}
+                 :decode [{:lang :default :text "no"}]}]}
       [0 :path] := [:odm.code-list/code-list-items]
       [0 :pred] := 'distinct-coded-values?))
 

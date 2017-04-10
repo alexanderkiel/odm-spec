@@ -118,7 +118,7 @@
            :data-type :integer
            :question nil}
       [0 :path] := [:odm.item-def/question]
-      [0 :pred] := 'map?))
+      [0 :pred] := 'coll?))
 
   (testing "Duplicate measurement unit ref OIDs"
     (given-problems :odm/item-def

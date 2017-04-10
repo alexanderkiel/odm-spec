@@ -10,12 +10,12 @@
       #:odm.measurement-unit
           {:oid "U01"
            :name "kilogram"
-           :symbol {:default "kg"}}
+           :symbol [{:lang :default :text "kg"}]}
 
       #:odm.measurement-unit
           {:oid "U02"
            :name "meters per second"
-           :symbol {:default "m/s"}
+           :symbol [{:lang :default :text "m/s"}]
            :odm/aliases
            [#:odm.alias{:context "latex"
                         :name "$\\frac{m}{s}$"}]}))
@@ -34,7 +34,7 @@
            :name "kilogram"
            :symbol "kg"}
       [0 :path] := [:odm.measurement-unit/symbol]
-      [0 :pred] := 'map?))
+      [0 :pred] := 'coll?))
 
   (testing "Generator available"
     (is (doall (s/exercise :odm/measurement-unit 1)))))

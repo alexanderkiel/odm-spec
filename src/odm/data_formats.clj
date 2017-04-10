@@ -59,7 +59,7 @@
   (s/and string? #(re-matches #"[\p{Alpha}_][\p{Alpha}\d_]{0,7}" %)))
 
 ;; RFC 3066 language tag
-(s/def ::lang-tag
+(s/def ::lang
   (s/or :tag string? :default #{:default}))
 
 (s/def ::string
@@ -67,7 +67,7 @@
 
 ;; 3.1.1.2.1.1.1 TranslatedText
 (s/def ::translated-text
-  (s/map-of ::lang-tag ::text :min-count 1))
+  (s/coll-of (s/keys :req-un [::lang ::text])))
 
 (def tx-type?
   #{:context :insert :remove :update :upsert})
