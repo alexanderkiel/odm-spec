@@ -2,7 +2,8 @@
   "2.13 - Data Formats"
   (:require [clojure.spec :as s]
             [clojure.spec.gen :as gen]
-            [clojure.string :as str])
+            [clojure.string :as str]
+            [odm.rfc-5646])
   (:import [java.math MathContext]))
 
 ;; unbounded integer, same as xs:integer
@@ -58,16 +59,12 @@
 (s/def ::sas-name
   (s/and string? #(re-matches #"[\p{Alpha}_][\p{Alpha}\d_]{0,7}" %)))
 
-;; RFC 3066 language tag
-(s/def ::lang
-  (s/or :tag string? :default #{:default}))
-
 (s/def ::string
   string?)
 
 ;; 3.1.1.2.1.1.1 TranslatedText
 (s/def ::translated-text
-  (s/coll-of (s/keys :req-un [::lang ::text])))
+  (s/coll-of (s/keys :req-un [:rfc-5646/lang-tag ::text])))
 
 (def tx-type?
   #{:context :insert :remove :update :upsert})

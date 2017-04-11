@@ -24,15 +24,15 @@
 
 (deftest translated-text-test
   (are [x] (s/valid? ::df/translated-text x)
-    [{:lang :default :text "foo"}]
+    [{:lang-tag "de" :text "foo"}]
 
-    [{:lang "de" :text "foo"}]
+    [{:lang-tag "de" :text "foo"}]
 
-    [{:lang "de" :text "foo"}
-     {:lang :default :text "bar"}]
+    [{:lang-tag "de" :text "foo"}
+     {:lang-tag "de" :text "bar"}]
 
-    [{:lang "de" :text "foo"}
-     {:lang "en" :text "bar"}])
+    [{:lang-tag "de" :text "foo"}
+     {:lang-tag "en" :text "bar"}])
 
   (are [x] (not (s/valid? ::df/translated-text x))
     [{}]))

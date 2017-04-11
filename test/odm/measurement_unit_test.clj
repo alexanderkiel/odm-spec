@@ -10,12 +10,12 @@
       #:odm.measurement-unit
           {:oid "U01"
            :name "kilogram"
-           :symbol [{:lang :default :text "kg"}]}
+           :symbol [{:lang-tag "de" :text "kg"}]}
 
       #:odm.measurement-unit
           {:oid "U02"
            :name "meters per second"
-           :symbol [{:lang :default :text "m/s"}]
+           :symbol [{:lang-tag "de" :text "m/s"}]
            :odm/aliases
            [#:odm.alias{:context "latex"
                         :name "$\\frac{m}{s}$"}]}))

@@ -13,7 +13,7 @@
            :name "foo"
            :type :other
            :odm/description
-           [{:lang :default :text "bar"}]}))
+           [{:lang-tag "de" :text "bar"}]}))
 
   (testing "Generator available"
     (is (doall (s/exercise :odm/method-def 1)))))

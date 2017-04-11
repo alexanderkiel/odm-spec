@@ -7,7 +7,7 @@
 (deftest description-test
   (testing "Valid descriptions"
     (are [x] (s/valid? :odm/description x)
-      [{:lang :default :text "foo"}]))
+      [{:lang-tag "de" :text "foo"}]))
 
   (testing "Invalid description key"
     (given-problems (s/keys :req [:odm/description])

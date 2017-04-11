@@ -152,7 +152,7 @@
                 :code-list-items
                 [#:odm.code-list
                     {:coded-value "1"
-                     :decode [{:lang :default :text "yes"}]}]}
+                     :decode [{:lang-tag "de" :text "yes"}]}]}
             #:odm.code-list
                 {:oid "CL01"
                  :name "foo"
@@ -160,7 +160,7 @@
                  :code-list-items
                  [#:odm.code-list
                      {:coded-value "1"
-                      :decode [{:lang :default :text "yes"}]}]}]}
+                      :decode [{:lang-tag "de" :text "yes"}]}]}]}
       [0 :path] := [:odm.metadata-version/code-lists]
       [0 :pred] := '(partial distinct-oids? :odm.code-list/oid)))
 
@@ -173,11 +173,11 @@
            [#:odm.condition-def
                {:oid "C01"
                 :name "foo"
-                :odm/description [{:lang :default :text "bar"}]}
+                :odm/description [{:lang-tag "de" :text "bar"}]}
             #:odm.condition-def
                 {:oid "C01"
                  :name "foo"
-                 :odm/description [{:lang :default :text "bar"}]}]}
+                 :odm/description [{:lang-tag "de" :text "bar"}]}]}
       [0 :path] := [:odm.metadata-version/condition-defs]
       [0 :pred] := '(partial distinct-oids? :odm.condition-def/oid)))
 
@@ -190,11 +190,11 @@
            [#:odm.method-def
                {:oid "M01"
                 :name "foo"
-                :odm/description [{:lang :default :text "bar"}]}
+                :odm/description [{:lang-tag "de" :text "bar"}]}
             #:odm.method-def
                 {:oid "M01"
                  :name "foo"
-                 :odm/description [{:lang :default :text "bar"}]}]}
+                 :odm/description [{:lang-tag "de" :text "bar"}]}]}
       [0 :path] := [:odm.metadata-version/method-defs]
       [0 :pred] := '(partial distinct-oids? :odm.method-def/oid)))
 

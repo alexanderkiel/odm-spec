@@ -10,7 +10,7 @@
           {:oid "C01"
            :name "foo"
            :odm/description
-           [{:lang :default :text "bar"}]}))
+           [{:lang-tag "de" :text "bar"}]}))
 
   (testing "Generator available"
     (is (doall (s/exercise :odm/condition-def 1)))))

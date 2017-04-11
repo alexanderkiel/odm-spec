@@ -8,7 +8,7 @@
   (testing "Valid protocols"
     (are [x] (s/valid? :odm/protocol x)
       {:odm/description
-       [{:lang :default :text "foo"}]}
+       [{:lang-tag "de" :text "foo"}]}
 
       #:odm.protocol
           {:study-event-refs

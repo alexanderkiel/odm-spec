@@ -22,7 +22,7 @@
            [#:odm.measurement-unit
                {:oid "U01"
                 :name "kilogram"
-                :symbol [{:lang :default :text "kg"}]}]}
+                :symbol [{:lang-tag "de" :text "kg"}]}]}
 
       #:odm.study
           {:oid "S01"
@@ -53,11 +53,11 @@
            [#:odm.measurement-unit
                {:oid "U01"
                 :name "kilogram"
-                :symbol [{:lang :default :text "kg"}]}
+                :symbol [{:lang-tag "de" :text "kg"}]}
             #:odm.measurement-unit
                {:oid "U01"
                 :name "kilogram"
-                :symbol [{:lang :default :text "kg"}]}]}
+                :symbol [{:lang-tag "de" :text "kg"}]}]}
       [0 :path] := [:odm.study/measurement-units]
       [0 :pred] := '(partial distinct-oids? :odm.measurement-unit/oid)))
 
