@@ -1,0 +1,44 @@
+(ns odm-spec.runner
+  (:require [doo.runner :refer-macros [doo-tests]]
+            [odm.alias-test]
+            [odm.clinical-data-test]
+            [odm.code-list-test]
+            [odm.condition-def-test]
+            [odm.data-formats-test]
+            [odm.description-test]
+            [odm.form-data-test]
+            [odm.form-def-test]
+            [odm.form-ref-test]
+            [odm.item-data-test]
+            [odm.item-def-test]
+            [odm.item-group-data-test]
+            [odm.item-group-def-test]
+            [odm.item-group-ref-test]
+            [odm.item-ref-test]
+            [odm.measurement-unit-test]
+            [odm.metadata-version-test]
+            [odm.method-def-test]
+            [odm.protocol-test]
+            [odm-spec.util-test]))
+
+(doo-tests
+  'odm.alias-test
+  'odm.clinical-data-test
+  'odm.code-list-test
+  'odm.condition-def-test
+  'odm.data-formats-test
+  'odm.description-test
+  'odm.form-data-test
+  'odm.form-def-test
+  'odm.form-ref-test
+  'odm.item-data-test
+  'odm.item-def-test
+  'odm.item-group-data-test
+  'odm.item-group-def-test
+  'odm.item-group-ref-test
+  'odm.item-ref-test
+  'odm.measurement-unit-test
+  'odm.metadata-version-test
+  'odm.method-def-test
+  'odm.protocol-test
+  'odm-spec.util-test)
