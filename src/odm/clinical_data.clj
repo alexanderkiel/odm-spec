@@ -20,7 +20,7 @@
   :odm.metadata-version/oid)
 
 (s/def ::subject-data
-  (s/coll-of :odm/subject-data))
+  (s/coll-of :odm/subject-data :gen-max 1))
 
 (s/def :odm/clinical-data
   (s/keys :req [::study-oid ::metadata-version-oid]

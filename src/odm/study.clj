@@ -26,7 +26,7 @@
          (partial u/distinct-oids? ::mu/oid)))
 
 (s/def ::metadata-versions
-  (s/and (s/coll-of :odm/metadata-version)
+  (s/and (s/coll-of :odm/metadata-version :gen-max 1)
          (partial u/distinct-oids? ::v/oid)))
 
 (s/def :odm/study

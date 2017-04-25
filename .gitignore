@@ -1,4 +1,5 @@
 /target
+/out
 /pom.xml
 /pom.xml.asc
 /.lein-*

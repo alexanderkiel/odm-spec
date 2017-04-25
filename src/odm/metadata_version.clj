@@ -23,31 +23,31 @@
   ::df/text)
 
 (s/def ::study-event-defs
-  (s/and (s/coll-of :odm/study-event-def)
+  (s/and (s/coll-of :odm/study-event-def :gen-max 1)
          (partial u/distinct-oids? ::se/oid)))
 
 (s/def ::form-defs
-  (s/and (s/coll-of :odm/form-def)
+  (s/and (s/coll-of :odm/form-def :gen-max 1)
          (partial u/distinct-oids? ::f/oid)))
 
 (s/def ::item-group-defs
-  (s/and (s/coll-of :odm/item-group-def)
+  (s/and (s/coll-of :odm/item-group-def :gen-max 1)
          (partial u/distinct-oids? ::ig/oid)))
 
 (s/def ::item-defs
-  (s/and (s/coll-of :odm/item-def)
+  (s/and (s/coll-of :odm/item-def :gen-max 1)
          (partial u/distinct-oids? ::i/oid)))
 
 (s/def ::code-lists
-  (s/and (s/coll-of :odm/code-list)
+  (s/and (s/coll-of :odm/code-list :gen-max 1)
          (partial u/distinct-oids? ::cl/oid)))
 
 (s/def ::condition-defs
-  (s/and (s/coll-of :odm/condition-def)
+  (s/and (s/coll-of :odm/condition-def :gen-max 1)
          (partial u/distinct-oids? ::c/oid)))
 
 (s/def ::method-defs
-  (s/and (s/coll-of :odm/method-def)
+  (s/and (s/coll-of :odm/method-def :gen-max 1)
          (partial u/distinct-oids? ::m/oid)))
 
 (s/def :odm/metadata-version
