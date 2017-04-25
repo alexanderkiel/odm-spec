@@ -1,4 +1,4 @@
-(defproject org.clojars.akiel/odm-spec "0.4-SNAPSHOT"
+(defproject org.clojars.akiel/odm-spec "0.4-alpha15"
   :description "Clojure specs for ODM data structures."
   :url "https://github.com/alexanderkiel/odm-spec"
   :license {:name "Eclipse Public License"
