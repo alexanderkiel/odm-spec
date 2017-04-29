@@ -13,9 +13,12 @@
 (s/def ::item-oid
   ::i/oid)
 
+;; The KeySequence (if present) indicates that this item is a key for the
+;; enclosing item group. It also provides an ordering for the keys.
 (s/def ::key-sequence
   ::df/integer)
 
+;; The MethodOID references a MethodDef used to derive the value of this item.
 (s/def ::method-oid
   ::m/oid)
 
