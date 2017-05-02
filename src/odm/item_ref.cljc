@@ -22,6 +22,7 @@
 (s/def ::method-oid
   ::m/oid)
 
+;; The Role attribute provides a single role name describing the use of this data item.
 (s/def ::role
   ::df/text)
 
