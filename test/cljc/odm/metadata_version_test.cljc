@@ -208,5 +208,6 @@
       [first :path] := [:odm.metadata-version/method-defs]
       [first :pred] := '(partial distinct-oids? :odm.method-def/oid)))
 
-  (testing "Generator available"
-    (is (doall (s/exercise :odm/metadata-version 1)))))
+  #?(:clj
+     (testing "Generator available"
+       (is (doall (s/exercise :odm/metadata-version 1))))))

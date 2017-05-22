@@ -49,8 +49,8 @@
       {}
       [first :pred] := '(contains? % :odm.study/oid)
       [second :pred] := '(contains? % :odm.study/name)
-      [2 :pred] := '(contains? % :odm.study/description)
-      [3 :pred] := '(contains? % :odm.study/protocol-name)))
+      [#(nth % 2) :pred] := '(contains? % :odm.study/description)
+      [#(nth % 3) :pred] := '(contains? % :odm.study/protocol-name)))
 
   (testing "Duplicate measurement unit OIDs"
     (given-problems :odm/study
@@ -65,9 +65,9 @@
                 :name "kilogram"
                 :symbol [{:lang-tag "de" :text "kg"}]}
             #:odm.measurement-unit
-               {:oid "U01"
-                :name "kilogram"
-                :symbol [{:lang-tag "de" :text "kg"}]}]}
+                {:oid "U01"
+                 :name "kilogram"
+                 :symbol [{:lang-tag "de" :text "kg"}]}]}
       [first :path] := [:odm.study/measurement-units]
       [first :pred] := '(partial distinct-oids? :odm.measurement-unit/oid)))
 
@@ -83,10 +83,11 @@
                {:oid "V01"
                 :name "foo"}
             #:odm.metadata-version
-               {:oid "V01"
-                :name "foo"}]}
+                {:oid "V01"
+                 :name "foo"}]}
       [first :path] := [:odm.study/metadata-versions]
       [first :pred] := '(partial distinct-oids? :odm.metadata-version/oid)))
 
-  (testing "Generator available"
-    (is (doall (s/exercise :odm/study 1)))))
+  #?(:clj
+     (testing "Generator available"
+       (is (doall (s/exercise :odm/study 1))))))

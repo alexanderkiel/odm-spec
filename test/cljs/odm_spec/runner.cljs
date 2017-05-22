@@ -6,6 +6,7 @@
             [odm.condition-def-test]
             [odm.data-formats-test]
             [odm.description-test]
+            [odm.file-test]
             [odm.form-data-test]
             [odm.form-def-test]
             [odm.form-ref-test]
@@ -19,6 +20,11 @@
             [odm.metadata-version-test]
             [odm.method-def-test]
             [odm.protocol-test]
+            [odm.rfc-5646-test]
+            [odm.study-event-data-test]
+            [odm.study-event-def-test]
+            [odm.study-event-ref-test]
+            [odm.study-test]
             [odm-spec.util-test]))
 
 (doo-tests
@@ -28,6 +34,7 @@
   'odm.condition-def-test
   'odm.data-formats-test
   'odm.description-test
+  'odm.file-test
   'odm.form-data-test
   'odm.form-def-test
   'odm.form-ref-test
@@ -41,4 +48,9 @@
   'odm.metadata-version-test
   'odm.method-def-test
   'odm.protocol-test
+  'odm.rfc-5646-test
+  'odm.study-event-data-test
+  'odm.study-event-def-test
+  'odm.study-event-ref-test
+  'odm.study-test
   'odm-spec.util-test)
