@@ -16,15 +16,21 @@
   (and (char? x) (re-matches #"[0-9]" (str x))))
 
 (s/def ::language
-  (s/& (s/+ char-alpha?) #(<= 2 (count %) 3) ::to-str))
+  (s/with-gen
+    (s/& (s/+ char-alpha?) #(<= 2 (count %) 3) ::to-str)
+    #(s/gen #{"de" "en"})))
 
 (s/def ::script
-  (s/& (s/+ char-alpha?) #(= 4 (count %)) ::to-str))
+  (s/with-gen
+    (s/& (s/+ char-alpha?) #(= 4 (count %)) ::to-str)
+    #(s/gen #{"Hant" "Hans"})))
 
 (s/def ::region
-  (s/& (s/alt :iso-3166-1 (s/& (s/+ char-alpha?) #(= 2 (count %)) ::to-str)
-              :un-m49 (s/& (s/+ char-digit?) #(= 3 (count %)) ::to-str))
-       (s/conformer second)))
+  (s/with-gen
+    (s/& (s/alt :iso-3166-1 (s/& (s/+ char-alpha?) #(= 2 (count %)) ::to-str)
+                :un-m49 (s/& (s/+ char-digit?) #(= 3 (count %)) ::to-str))
+         (s/conformer second))
+    #(s/gen #{"DE" "US"})))
 
 ;; RFC 5646 language tag
 (s/def :rfc-5646/lang-tag
