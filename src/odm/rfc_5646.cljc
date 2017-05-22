@@ -10,10 +10,10 @@
   (s/conformer #(:val %)))
 
 (defn- char-alpha? [x]
-  (and (char? x) #?(:clj (Character/isLetter ^char x))))
+  (and (char? x) (re-matches #"[a-zA-Z]" (str x))))
 
 (defn- char-digit? [x]
-  (and (char? x) #?(:clj (Character/isDigit ^char x))))
+  (and (char? x) (re-matches #"[0-9]" (str x))))
 
 (s/def ::language
   (s/& (s/+ char-alpha?) #(<= 2 (count %) 3) ::to-str))
