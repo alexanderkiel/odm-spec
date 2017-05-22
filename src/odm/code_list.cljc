@@ -45,7 +45,7 @@
      (count coll)))
 
 (s/def ::code-list-items
-  (s/and (s/coll-of :odm/code-list-item :gen-max 10)
+  (s/and (s/coll-of :odm/code-list-item :gen-max 2)
          distinct-coded-values?))
 
 (s/def :odm/enumerated-item
@@ -53,7 +53,7 @@
           :opt [::rank :odm/order-number :odm/aliases]))
 
 (s/def ::enumerated-items
-  (s/and (s/coll-of :odm/enumerated-item :gen-max 10)
+  (s/and (s/coll-of :odm/enumerated-item :gen-max 2)
          distinct-coded-values?))
 
 (s/def :odm/code-list
