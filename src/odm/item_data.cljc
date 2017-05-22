@@ -32,7 +32,7 @@
 (s/def ::date-time-value
   ::df/date-time)
 
-(s/def ::boolean
+(s/def ::boolean-value
   boolean?)
 
 (defmulti item-data-spec ::data-type)
@@ -50,7 +50,7 @@
   (item-data-spec* ::date-time-value))
 
 (defmethod item-data-spec :boolean [_]
-  (item-data-spec* ::boolean))
+  (item-data-spec* ::boolean-value))
 
 (s/def :odm/item-data
   (s/multi-spec item-data-spec ::data-type))
