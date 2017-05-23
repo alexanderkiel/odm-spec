@@ -15,7 +15,7 @@
    {:dependencies [[criterium "0.4.4"]
                    [juxt/iota "0.2.2"]
                    [org.clojure/clojure "1.9.0-alpha15"]
-                   [org.clojure/clojurescript "1.9.494"]
+                   [org.clojure/clojurescript "1.9.521"]
                    [org.clojure/test.check "0.9.0"]]}}
 
   :source-paths ["src"]
