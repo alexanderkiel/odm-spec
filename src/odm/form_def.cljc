@@ -19,7 +19,7 @@
 
 (s/def ::item-group-refs
   (s/and (s/coll-of :odm/item-group-ref :gen-max 2)
-         (partial u/distinct-oids? :odm.item-group-ref/item-group-oid)
+         (partial u/distinct-values? :odm.item-group-ref/item-group-oid)
          #(u/distinct-order-numbers? %)))
 
 (s/def :odm/form-def

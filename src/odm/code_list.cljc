@@ -7,9 +7,11 @@
     #?(:clj [clojure.spec :as s]
        :cljs [cljs.spec :as s])
             [odm.alias]
+            [odm.code-list-item :as code-list-item]
             [odm.common]
             [odm.data-formats :as df]
             [odm.description]
+            [odm.enumerated-item :as enumerated-item]
             [odm-spec.util :as u]))
 
 (s/def ::oid
@@ -23,38 +25,17 @@
 (s/def ::data-type
   #{:integer :float :text :string})
 
-;; Value of the codelist item (as it would occur in clinical data).
-(s/def ::coded-value
-  ::df/text)
-
-;; Numeric significance of the CodeListItem relative to others in the CodeList.
-;; Rank is optional, but if given for any CodeListItems in a CodeList it must
-;; be given for all.
-(s/def ::rank
-  ::df/float)
-
-(s/def ::decode
-  ::df/translated-text)
-
-(s/def :odm/code-list-item
-  (s/keys :req [::coded-value ::decode]
-          :opt [::rank :odm/order-number :odm/aliases]))
-
-(defn distinct-coded-values? [coll]
-  (= (count (into #{} (map ::coded-value) coll))
-     (count coll)))
-
 (s/def ::code-list-items
   (s/and (s/coll-of :odm/code-list-item :gen-max 2)
-         distinct-coded-values?))
-
-(s/def :odm/enumerated-item
-  (s/keys :req [::coded-value]
-          :opt [::rank :odm/order-number :odm/aliases]))
+         #(u/distinct-values? ::code-list-item/coded-value %)
+         #(u/distinct-or-no-values? ::code-list-item/rank %)
+         #(u/distinct-or-no-values? :odm/order-number %)))
 
 (s/def ::enumerated-items
   (s/and (s/coll-of :odm/enumerated-item :gen-max 2)
-         distinct-coded-values?))
+         #(u/distinct-values? ::enumerated-item/coded-value %)
+         #(u/distinct-or-no-values? ::enumerated-item/rank %)
+         #(u/distinct-or-no-values? :odm/order-number %)))
 
 (s/def :odm/code-list
   (s/with-gen

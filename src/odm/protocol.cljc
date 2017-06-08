@@ -20,7 +20,7 @@
 
 (s/def ::study-event-refs
   (s/and (s/coll-of :odm/study-event-ref :gen-max 2)
-         (partial u/distinct-oids? :odm.study-event-ref/study-event-oid)
+         (partial u/distinct-values? :odm.study-event-ref/study-event-oid)
          #(u/distinct-order-numbers? %)))
 
 (s/def :odm/protocol

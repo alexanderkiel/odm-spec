@@ -69,7 +69,7 @@
                  :name "kilogram"
                  :symbol [{:lang-tag "de" :text "kg"}]}]}
       [first :path] := [:odm.study/measurement-units]
-      [first :pred] := '(partial distinct-oids? :odm.measurement-unit/oid)))
+      [first :pred] := '(partial distinct-values? :odm.measurement-unit/oid)))
 
   (testing "Duplicate metadata version OIDs"
     (given-problems :odm/study
@@ -86,7 +86,7 @@
                 {:oid "V01"
                  :name "foo"}]}
       [first :path] := [:odm.study/metadata-versions]
-      [first :pred] := '(partial distinct-oids? :odm.metadata-version/oid)))
+      [first :pred] := '(partial distinct-values? :odm.metadata-version/oid)))
 
   #?(:clj
      (testing "Generator available"

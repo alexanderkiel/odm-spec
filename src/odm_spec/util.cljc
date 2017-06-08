@@ -17,9 +17,18 @@
   (let [oid (partial format (str prefix "%02d"))]
     (s/with-gen ::df/oid #(gen/fmap oid (gen/choose 1 99)))))
 
-(defn distinct-oids? [oid coll]
-  (= (count (into #{} (map oid) coll))
+(defn distinct-values?
+  "Returns true if all values of the given key of maps in coll are distinct and
+  not nil."
+  [key coll]
+  (= (count (into #{} (comp (remove nil?) (map key)) coll))
      (count coll)))
+
+(defn distinct-or-no-values?
+  "Returns true if all values of the given key of maps in coll are distinct and
+  not nil."
+  [key coll]
+  (or (every? nil? (map key coll)) (distinct-values? key coll)))
 
 (defn distinct-oid-repeat-key-pairs? [oid repeat-key coll]
   (= (count (into #{} (map #(vector (oid %) (repeat-key %))) coll))

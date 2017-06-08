@@ -25,11 +25,11 @@
 
 (s/def ::measurement-units
   (s/and (s/coll-of :odm/measurement-unit :gen-max 2)
-         (partial u/distinct-oids? ::mu/oid)))
+         (partial u/distinct-values? ::mu/oid)))
 
 (s/def ::metadata-versions
   (s/and (s/coll-of :odm/metadata-version :gen-max 2)
-         (partial u/distinct-oids? ::v/oid)))
+         (partial u/distinct-values? ::v/oid)))
 
 (s/def :odm/study
   (s/keys :req [::oid ::name ::description ::protocol-name]

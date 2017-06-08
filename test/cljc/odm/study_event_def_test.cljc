@@ -49,7 +49,7 @@
                 {:form-oid "F01"
                  :odm/mandatory true}]}
       [first :path] := [:odm.study-event-def/form-refs]
-      [first :pred] := '(partial distinct-oids? :odm.form-ref/form-oid)))
+      [first :pred] := '(partial distinct-values? :odm.form-ref/form-oid)))
 
   (testing "Duplicate order numbers in form refs"
     (given-problems :odm/study-event-def

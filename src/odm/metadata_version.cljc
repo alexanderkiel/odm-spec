@@ -26,31 +26,31 @@
 
 (s/def ::study-event-defs
   (s/and (s/coll-of :odm/study-event-def :gen-max 2)
-         (partial u/distinct-oids? ::se/oid)))
+         (partial u/distinct-values? ::se/oid)))
 
 (s/def ::form-defs
   (s/and (s/coll-of :odm/form-def :gen-max 2)
-         (partial u/distinct-oids? ::f/oid)))
+         (partial u/distinct-values? ::f/oid)))
 
 (s/def ::item-group-defs
   (s/and (s/coll-of :odm/item-group-def :gen-max 2)
-         (partial u/distinct-oids? ::ig/oid)))
+         (partial u/distinct-values? ::ig/oid)))
 
 (s/def ::item-defs
   (s/and (s/coll-of :odm/item-def :gen-max 2)
-         (partial u/distinct-oids? ::i/oid)))
+         (partial u/distinct-values? ::i/oid)))
 
 (s/def ::code-lists
   (s/and (s/coll-of :odm/code-list :gen-max 2)
-         (partial u/distinct-oids? ::cl/oid)))
+         (partial u/distinct-values? ::cl/oid)))
 
 (s/def ::condition-defs
   (s/and (s/coll-of :odm/condition-def :gen-max 2)
-         (partial u/distinct-oids? ::c/oid)))
+         (partial u/distinct-values? ::c/oid)))
 
 (s/def ::method-defs
   (s/and (s/coll-of :odm/method-def :gen-max 2)
-         (partial u/distinct-oids? ::m/oid)))
+         (partial u/distinct-values? ::m/oid)))
 
 (s/def :odm/metadata-version
   (s/keys :req [::oid ::name]

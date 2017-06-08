@@ -142,7 +142,7 @@
             #:odm.measurement-unit-ref
                 {:measurement-unit-oid "U01"}]}
       [first :path] := [:odm.item-def/measurement-unit-refs]
-      [first :pred] := '(partial distinct-oids? :odm.measurement-unit-ref/measurement-unit-oid)))
+      [first :pred] := '(partial distinct-values? :odm.measurement-unit-ref/measurement-unit-oid)))
 
   (testing "Invalid aliases"
     (given-problems :odm/item-def

@@ -44,7 +44,7 @@
 
 (s/def ::form-refs
   (s/and (s/coll-of :odm/form-ref :gen-max 2)
-         (partial u/distinct-oids? :odm.form-ref/form-oid)
+         (partial u/distinct-values? :odm.form-ref/form-oid)
          #(u/distinct-order-numbers? %)))
 
 (s/def :odm/study-event-def

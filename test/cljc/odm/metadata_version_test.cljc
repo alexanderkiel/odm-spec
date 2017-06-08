@@ -96,7 +96,7 @@
                  :odm.def/repeating false
                  :type :common}]}
       [first :path] := [:odm.metadata-version/study-event-defs]
-      [first :pred] := '(partial distinct-oids? :odm.study-event-def/oid)))
+      [first :pred] := '(partial distinct-values? :odm.study-event-def/oid)))
 
   (testing "Duplicate form definition OIDs"
     (given-problems :odm/metadata-version
@@ -113,7 +113,7 @@
                  :name "foo"
                  :odm.def/repeating false}]}
       [first :path] := [:odm.metadata-version/form-defs]
-      [first :pred] := '(partial distinct-oids? :odm.form-def/oid)))
+      [first :pred] := '(partial distinct-values? :odm.form-def/oid)))
 
   (testing "Duplicate item group definition OIDs"
     (given-problems :odm/metadata-version
@@ -130,7 +130,7 @@
                  :name "foo"
                  :odm.def/repeating false}]}
       [first :path] := [:odm.metadata-version/item-group-defs]
-      [first :pred] := '(partial distinct-oids? :odm.item-group-def/oid)))
+      [first :pred] := '(partial distinct-values? :odm.item-group-def/oid)))
 
   (testing "Duplicate item definition OIDs"
     (given-problems :odm/metadata-version
@@ -147,7 +147,7 @@
                  :name "foo"
                  :data-type :integer}]}
       [first :path] := [:odm.metadata-version/item-defs]
-      [first :pred] := '(partial distinct-oids? :odm.item-def/oid)))
+      [first :pred] := '(partial distinct-values? :odm.item-def/oid)))
 
   (testing "Duplicate code list OIDs"
     (given-problems :odm/metadata-version
@@ -160,7 +160,7 @@
                 :name "foo"
                 :data-type :text
                 :code-list-items
-                [#:odm.code-list
+                [#:odm.code-list-item
                     {:coded-value "1"
                      :decode [{:lang-tag "de" :text "yes"}]}]}
             #:odm.code-list
@@ -168,11 +168,11 @@
                  :name "foo"
                  :data-type :text
                  :code-list-items
-                 [#:odm.code-list
+                 [#:odm.code-list-item
                      {:coded-value "1"
                       :decode [{:lang-tag "de" :text "yes"}]}]}]}
       [first :path] := [:odm.metadata-version/code-lists]
-      [first :pred] := '(partial distinct-oids? :odm.code-list/oid)))
+      [first :pred] := '(partial distinct-values? :odm.code-list/oid)))
 
   (testing "Duplicate condition definition OIDs"
     (given-problems :odm/metadata-version
@@ -189,7 +189,7 @@
                  :name "foo"
                  :odm/description [{:lang-tag "de" :text "bar"}]}]}
       [first :path] := [:odm.metadata-version/condition-defs]
-      [first :pred] := '(partial distinct-oids? :odm.condition-def/oid)))
+      [first :pred] := '(partial distinct-values? :odm.condition-def/oid)))
 
   (testing "Inconsistent method definition OIDs"
     (given-problems :odm/metadata-version
@@ -206,7 +206,7 @@
                  :name "foo"
                  :odm/description [{:lang-tag "de" :text "bar"}]}]}
       [first :path] := [:odm.metadata-version/method-defs]
-      [first :pred] := '(partial distinct-oids? :odm.method-def/oid)))
+      [first :pred] := '(partial distinct-values? :odm.method-def/oid)))
 
   #?(:clj
      (testing "Generator available"

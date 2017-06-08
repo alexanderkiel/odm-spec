@@ -55,7 +55,7 @@
                 {:study-event-oid "SE01"
                  :odm/mandatory true}]}
       [first :path] := [:odm.protocol/study-event-refs]
-      [first :pred] := '(partial distinct-oids? :odm.study-event-ref/study-event-oid)))
+      [first :pred] := '(partial distinct-values? :odm.study-event-ref/study-event-oid)))
 
   (testing "Duplicate order numbers in study event refs"
     (given-problems :odm/protocol

@@ -18,13 +18,13 @@
 
 (deftest distinct-oids?-test
   (testing "One OID is good"
-    (is (u/distinct-oids? :oid [{:oid "1"}])))
+    (is (u/distinct-values? :oid [{:oid "1"}])))
 
   (testing "Distinct OID's are good"
-    (is (u/distinct-oids? :oid [{:oid "1"} {:oid "2"}])))
+    (is (u/distinct-values? :oid [{:oid "1"} {:oid "2"}])))
 
   (testing "Duplicate OID's are bad"
-    (is (not (u/distinct-oids? :oid [{:oid "1"} {:oid "1"}])))))
+    (is (not (u/distinct-values? :oid [{:oid "1"} {:oid "1"}])))))
 
 (deftest distinct-order-numbers?-test
   (testing "No order numbers are good"

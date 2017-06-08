@@ -37,7 +37,7 @@
                 {:item-group-oid "IG01"
                  :odm/mandatory true}]}
       [first :path] := [:odm.form-def/item-group-refs]
-      [first :pred] := '(partial distinct-oids? :odm.item-group-ref/item-group-oid)))
+      [first :pred] := '(partial distinct-values? :odm.item-group-ref/item-group-oid)))
 
   (testing "Duplicate order numbers in item group refs"
     (given-problems :odm/form-def

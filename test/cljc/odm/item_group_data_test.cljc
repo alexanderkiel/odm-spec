@@ -78,7 +78,7 @@
                  :data-type :string
                  :string-value "foo"}]}
       [first :path] := [:odm.item-group-data/item-data]
-      [first :pred] := '(partial distinct-oids? :odm.item-data/item-oid)))
+      [first :pred] := '(partial distinct-values? :odm.item-data/item-oid)))
 
   (testing "Generator available"
     (is (doall (s/exercise :odm/item-group-data 1)))))

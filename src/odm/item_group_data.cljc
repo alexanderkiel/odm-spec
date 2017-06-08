@@ -17,7 +17,7 @@
 
 (s/def ::item-data
   (s/and (s/coll-of :odm/item-data :gen-max 2)
-         (partial u/distinct-oids? :odm.item-data/item-oid)))
+         (partial u/distinct-values? :odm.item-data/item-oid)))
 
 (s/def :odm/item-group-data
   (s/keys :req [::item-group-oid]
