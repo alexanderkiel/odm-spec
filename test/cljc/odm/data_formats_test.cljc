@@ -38,13 +38,13 @@
     [{:lang-tag "de" :text "foo"}]
 
     [{:lang-tag "de" :text "foo"}
-     {:lang-tag "de" :text "bar"}]
-
-    [{:lang-tag "de" :text "foo"}
      {:lang-tag "en" :text "bar"}])
 
   (are [x] (not (s/valid? ::df/translated-text x))
-    [{}])
+    [{}]
+
+    [{:lang-tag "de" :text "foo"}
+     {:lang-tag "de" :text "bar"}])
 
   (testing "Generator available"
     (is (doall (s/exercise ::df/translated-text 1)))))

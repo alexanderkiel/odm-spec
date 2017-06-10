@@ -71,9 +71,11 @@
 
 ;; 3.1.1.2.1.1.1 TranslatedText
 (s/def ::translated-text
-  (s/coll-of
-    (s/keys :req-un [::text] :opt-un [:rfc-5646/lang-tag])
-    :gen-max 2))
+  (s/and (s/coll-of
+           (s/keys :req-un [::text] :opt-un [:rfc-5646/lang-tag])
+           :min-count 1
+           :gen-max 3)
+         #(apply distinct? (map :lang-tag %))))
 
 (def tx-type?
   #{:context :insert :remove :update :upsert})
