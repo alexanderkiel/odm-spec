@@ -19,6 +19,7 @@
 (s/def ::rank
   ::df/float)
 
+;; The displayed value relating to the CodedValue.
 (s/def ::decode
   ::df/translated-text)
 
