@@ -6,7 +6,8 @@
   (:require
     #?(:clj [clojure.spec :as s]
        :cljs [cljs.spec :as s])
-            [odm.data-formats :as df]))
+            [odm.data-formats :as df]
+            [odm-spec.util :as u]))
 
 ;; The application domain in which the alias is relevant.
 (s/def ::context
@@ -19,4 +20,5 @@
   (s/keys :req [::context ::name]))
 
 (s/def :odm/aliases
-  (s/coll-of :odm/alias :gen-max 3))
+  (s/and (s/coll-of :odm/alias :gen-max 3)
+         #(u/distinct-values? ::context %)))
