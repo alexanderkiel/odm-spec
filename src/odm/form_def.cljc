@@ -1,8 +1,8 @@
 (ns odm.form-def
   "3.1.1.3.4 - FormDef"
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.alias]
             [odm.common]
             [odm.data-formats :as df]

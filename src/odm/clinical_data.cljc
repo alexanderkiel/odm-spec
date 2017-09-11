@@ -4,8 +4,8 @@
   Clinical data is the data of subjects which was recored in a study under a
   particular metadata version."
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.data-formats :as df]
             [odm.metadata-version]
             [odm.study]

@@ -1,16 +1,17 @@
 (ns odm.item-def-test
   (:require
     #?@(:clj
-        [[clojure.spec :as s]
-         [clojure.spec.test :as st]
+        [[clojure.spec.alpha :as s]
+         [clojure.spec.test.alpha :as st]
          [clojure.test :refer :all]
          [odm-spec.test-util :refer [given-problems]]]
         :cljs
-        [[cljs.spec :as s]
-         [cljs.spec.test :as st]
+        [[cljs.spec.alpha :as s]
+         [cljs.spec.test.alpha :as st]
          [cljs.test :refer-macros [deftest testing is are]]
          [odm-spec.test-util :refer-macros [given-problems]]])
-         [odm.item-def]))
+         [odm.item-def :as item-def]
+         [odm-spec.util :as u]))
 
 (st/instrument)
 
@@ -62,7 +63,7 @@
            :data-type :integer
            :length 0}
       [first :path] := [:odm.item-def/length]
-      [first :pred] := 'pos?))
+      [first :pred] := `pos?))
 
   (testing "Missing length"
     (given-problems :odm/item-def
@@ -71,7 +72,7 @@
            :name "foo"
            :data-type :text}
       [first :path] := []
-      [first :pred] := 'length-given-on-text-or-string?)
+      [first :pred] := `item-def/length-given-on-text-or-string?)
 
     (given-problems :odm/item-def
       #:odm.item-def
@@ -79,7 +80,7 @@
            :name "foo"
            :data-type :string}
       [first :path] := []
-      [first :pred] := 'length-given-on-text-or-string?))
+      [first :pred] := `item-def/length-given-on-text-or-string?))
 
   (testing "Invalid significant digits"
     (given-problems :odm/item-def
@@ -89,7 +90,7 @@
            :data-type :integer
            :significant-digits -1}
       [first :path] := [:odm.item-def/significant-digits]
-      [first :pred] := '(complement neg?)))
+      [first :pred] := `(complement neg?)))
 
   (testing "Given significant digits without length on float"
     (given-problems :odm/item-def
@@ -99,7 +100,7 @@
            :data-type :float
            :significant-digits 1}
       [first :path] := []
-      [first :pred] := 'length-and-significant-digits-given-or-absent-on-float?))
+      [first :pred] := `item-def/length-and-significant-digits-given-or-absent-on-float?))
 
   (testing "Given length without significant digits on float"
     (given-problems :odm/item-def
@@ -109,7 +110,7 @@
            :data-type :float
            :length 1}
       [first :path] := []
-      [first :pred] := 'length-and-significant-digits-given-or-absent-on-float?))
+      [first :pred] := `item-def/length-and-significant-digits-given-or-absent-on-float?))
 
   (testing "Invalid SDS var name"
     (given-problems :odm/item-def
@@ -128,7 +129,7 @@
            :data-type :integer
            :question nil}
       [first :path] := [:odm.item-def/question]
-      [first :pred] := 'coll?))
+      [first :pred] := `coll?))
 
   (testing "Duplicate measurement unit ref OIDs"
     (given-problems :odm/item-def
@@ -142,7 +143,7 @@
             #:odm.measurement-unit-ref
                 {:measurement-unit-oid "U01"}]}
       [first :path] := [:odm.item-def/measurement-unit-refs]
-      [first :pred] := '(partial distinct-values? :odm.measurement-unit-ref/measurement-unit-oid)))
+      [first :pred] := `(partial u/distinct-values? :odm.measurement-unit-ref/measurement-unit-oid)))
 
   (testing "Invalid aliases"
     (given-problems :odm/item-def
@@ -152,7 +153,7 @@
            :data-type :integer
            :odm/aliases 1}
       [first :path] := [:odm/aliases]
-      [first :pred] := 'coll?))
+      [first :pred] := `coll?))
 
   (testing "Generator available"
     (is (doall (s/exercise :odm/item-def 1)))))

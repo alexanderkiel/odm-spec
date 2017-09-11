@@ -7,8 +7,8 @@
   The CodedValue must be an acceptable value of the DataType of the containing
   CodeList."
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.data-formats :as df]))
 
 ;; Value of the enumerated item (as it would occur in clinical data).

@@ -1,13 +1,13 @@
 (ns odm.description-test
   (:require
     #?@(:clj
-        [[clojure.spec :as s]
-         [clojure.spec.test :as st]
+        [[clojure.spec.alpha :as s]
+         [clojure.spec.test.alpha :as st]
          [clojure.test :refer :all]
          [odm-spec.test-util :refer [given-problems]]]
         :cljs
-        [[cljs.spec :as s]
-         [cljs.spec.test :as st]
+        [[cljs.spec.alpha :as s]
+         [cljs.spec.test.alpha :as st]
          [cljs.test :refer-macros [deftest testing is are]]
          [odm-spec.test-util :refer-macros [given-problems]]])
          [odm.description]))
@@ -23,7 +23,7 @@
     (given-problems (s/keys :req [:odm/description])
       {:odm/description nil}
       [first :path] := [:odm/description]
-      [first :pred] := 'coll?))
+      [first :pred] := `coll?))
 
   (testing "Generator available"
     (is (doall (s/exercise :odm/description 1)))))

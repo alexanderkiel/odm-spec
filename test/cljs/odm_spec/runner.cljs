@@ -25,6 +25,7 @@
             [odm.study-event-def-test]
             [odm.study-event-ref-test]
             [odm.study-test]
+            [odm.subject-data-test]
             [odm-spec.util-test]))
 
 (doo-tests
@@ -53,4 +54,5 @@
   'odm.study-event-def-test
   'odm.study-event-ref-test
   'odm.study-test
+  'odm.subject-data-test
   'odm-spec.util-test)

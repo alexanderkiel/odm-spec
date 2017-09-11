@@ -3,8 +3,8 @@
 
   Clinical data for a single subject."
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.common]
             [odm.data-formats :as df]
             [odm.study-event-data :as sed]

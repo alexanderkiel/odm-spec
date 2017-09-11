@@ -1,16 +1,17 @@
 (ns odm.study-test
   (:require
     #?@(:clj
-        [[clojure.spec :as s]
-         [clojure.spec.test :as st]
+        [[clojure.spec.alpha :as s]
+         [clojure.spec.test.alpha :as st]
          [clojure.test :refer :all]
          [odm-spec.test-util :refer [given-problems]]]
         :cljs
-        [[cljs.spec :as s]
-         [cljs.spec.test :as st]
+        [[cljs.spec.alpha :as s]
+         [cljs.spec.test.alpha :as st]
          [cljs.test :refer-macros [deftest testing is are]]
          [odm-spec.test-util :refer-macros [given-problems]]])
-         [odm.study]))
+         [odm.study]
+         [odm-spec.util :as u]))
 
 (st/instrument)
 
@@ -47,10 +48,10 @@
   (testing "Missing keys"
     (given-problems :odm/study
       {}
-      [first :pred] := '(contains? % :odm.study/oid)
-      [second :pred] := '(contains? % :odm.study/name)
-      [#(nth % 2) :pred] := '(contains? % :odm.study/description)
-      [#(nth % 3) :pred] := '(contains? % :odm.study/protocol-name)))
+      [first :pred] := `(fn [~'%] (contains? ~'% :odm.study/oid))
+      [second :pred] := `(fn [~'%] (contains? ~'% :odm.study/name))
+      [#(nth % 2) :pred] := `(fn [~'%] (contains? ~'% :odm.study/description))
+      [#(nth % 3) :pred] := `(fn [~'%] (contains? ~'% :odm.study/protocol-name))))
 
   (testing "Duplicate measurement unit OIDs"
     (given-problems :odm/study
@@ -69,7 +70,7 @@
                  :name "kilogram"
                  :symbol [{:lang-tag "de" :text "kg"}]}]}
       [first :path] := [:odm.study/measurement-units]
-      [first :pred] := '(partial distinct-values? :odm.measurement-unit/oid)))
+      [first :pred] := `(partial u/distinct-values? :odm.measurement-unit/oid)))
 
   (testing "Duplicate metadata version OIDs"
     (given-problems :odm/study
@@ -86,7 +87,7 @@
                 {:oid "V01"
                  :name "foo"}]}
       [first :path] := [:odm.study/metadata-versions]
-      [first :pred] := '(partial distinct-values? :odm.metadata-version/oid)))
+      [first :pred] := `(partial u/distinct-values? :odm.metadata-version/oid)))
 
   #?(:clj
      (testing "Generator available"

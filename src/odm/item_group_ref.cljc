@@ -1,8 +1,8 @@
 (ns odm.item-group-ref
   "3.1.1.3.3.1 - ItemGroupRef"
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.common]
             [odm.condition-def :as c]
             [odm.item-group-def :as ig]

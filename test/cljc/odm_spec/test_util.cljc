@@ -16,7 +16,7 @@
 
 (defmacro given-problems [spec val & body]
   `(if-cljs
-     (given (:cljs.spec/problems (cljs.spec/explain-data ~spec ~val))
+     (given (:cljs.spec.alpha/problems (cljs.spec.alpha/explain-data ~spec ~val))
        ~@body)
-     (given (:clojure.spec/problems (clojure.spec/explain-data ~spec ~val))
+     (given (:clojure.spec.alpha/problems (clojure.spec.alpha/explain-data ~spec ~val))
        ~@body)))

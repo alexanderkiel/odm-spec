@@ -6,8 +6,8 @@
   type imputation, computation or transpose must evaluate to the correct
   data-type for an item that may be imputed or computed using the method."
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.common]
             [odm.data-formats :as df]))
 

@@ -4,8 +4,8 @@
   An alias provides an additional name for an entity. The context specifies the
   application domain in which the additional name is relevant."
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.data-formats :as df]
             [odm-spec.util :as u]))
 

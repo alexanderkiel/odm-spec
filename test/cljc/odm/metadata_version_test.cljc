@@ -1,16 +1,17 @@
 (ns odm.metadata-version-test
   (:require
     #?@(:clj
-        [[clojure.spec :as s]
-         [clojure.spec.test :as st]
+        [[clojure.spec.alpha :as s]
+         [clojure.spec.test.alpha :as st]
          [clojure.test :refer :all]
          [odm-spec.test-util :refer [given-problems]]]
         :cljs
-        [[cljs.spec :as s]
-         [cljs.spec.test :as st]
+        [[cljs.spec.alpha :as s]
+         [cljs.spec.test.alpha :as st]
          [cljs.test :refer-macros [deftest testing is are]]
          [odm-spec.test-util :refer-macros [given-problems]]])
-         [odm.metadata-version]))
+         [odm.metadata-version]
+         [odm-spec.util :as u]))
 
 (st/instrument)
 
@@ -47,8 +48,8 @@
   (testing "Missing keys"
     (given-problems :odm/metadata-version
       {}
-      [first :pred] := '(contains? % :odm.metadata-version/oid)
-      [second :pred] := '(contains? % :odm.metadata-version/name)))
+      [first :pred] := `(fn [~'%] (contains? ~'% :odm.metadata-version/oid))
+      [second :pred] := `(fn [~'%] (contains? ~'% :odm.metadata-version/name))))
 
   (testing "Invalid description"
     (given-problems :odm/metadata-version
@@ -57,7 +58,7 @@
            :name "foo"
            :description 1}
       [first :path] := [:odm.metadata-version/description]
-      [first :pred] := 'string?))
+      [first :pred] := `string?))
 
   (testing "Invalid include"
     (given-problems :odm/metadata-version
@@ -96,7 +97,7 @@
                  :odm.def/repeating false
                  :type :common}]}
       [first :path] := [:odm.metadata-version/study-event-defs]
-      [first :pred] := '(partial distinct-values? :odm.study-event-def/oid)))
+      [first :pred] := `(partial u/distinct-values? :odm.study-event-def/oid)))
 
   (testing "Duplicate form definition OIDs"
     (given-problems :odm/metadata-version
@@ -113,7 +114,7 @@
                  :name "foo"
                  :odm.def/repeating false}]}
       [first :path] := [:odm.metadata-version/form-defs]
-      [first :pred] := '(partial distinct-values? :odm.form-def/oid)))
+      [first :pred] := `(partial u/distinct-values? :odm.form-def/oid)))
 
   (testing "Duplicate item group definition OIDs"
     (given-problems :odm/metadata-version
@@ -130,7 +131,7 @@
                  :name "foo"
                  :odm.def/repeating false}]}
       [first :path] := [:odm.metadata-version/item-group-defs]
-      [first :pred] := '(partial distinct-values? :odm.item-group-def/oid)))
+      [first :pred] := `(partial u/distinct-values? :odm.item-group-def/oid)))
 
   (testing "Duplicate item definition OIDs"
     (given-problems :odm/metadata-version
@@ -147,7 +148,7 @@
                  :name "foo"
                  :data-type :integer}]}
       [first :path] := [:odm.metadata-version/item-defs]
-      [first :pred] := '(partial distinct-values? :odm.item-def/oid)))
+      [first :pred] := `(partial u/distinct-values? :odm.item-def/oid)))
 
   (testing "Duplicate code list OIDs"
     (given-problems :odm/metadata-version
@@ -172,7 +173,7 @@
                      {:coded-value "1"
                       :decode [{:lang-tag "de" :text "yes"}]}]}]}
       [first :path] := [:odm.metadata-version/code-lists]
-      [first :pred] := '(partial distinct-values? :odm.code-list/oid)))
+      [first :pred] := `(partial u/distinct-values? :odm.code-list/oid)))
 
   (testing "Duplicate condition definition OIDs"
     (given-problems :odm/metadata-version
@@ -189,7 +190,7 @@
                  :name "foo"
                  :odm/description [{:lang-tag "de" :text "bar"}]}]}
       [first :path] := [:odm.metadata-version/condition-defs]
-      [first :pred] := '(partial distinct-values? :odm.condition-def/oid)))
+      [first :pred] := `(partial u/distinct-values? :odm.condition-def/oid)))
 
   (testing "Inconsistent method definition OIDs"
     (given-problems :odm/metadata-version
@@ -206,7 +207,7 @@
                  :name "foo"
                  :odm/description [{:lang-tag "de" :text "bar"}]}]}
       [first :path] := [:odm.metadata-version/method-defs]
-      [first :pred] := '(partial distinct-values? :odm.method-def/oid)))
+      [first :pred] := `(partial u/distinct-values? :odm.method-def/oid)))
 
   #?(:clj
      (testing "Generator available"

@@ -4,8 +4,8 @@
   Defines a discrete set of permitted values for an item. The definition can be
   an explicit list of values or a reference to an externally defined codelist."
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.alias]
             [odm.code-list-item :as code-list-item]
             [odm.common]

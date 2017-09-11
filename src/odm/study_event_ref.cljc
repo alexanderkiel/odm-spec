@@ -1,8 +1,8 @@
 (ns odm.study-event-ref
   "3.1.1.3.2.2 - StudyEventRef"
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.common]
             [odm.ref]
             [odm.study-event-def :as se]))

@@ -1,16 +1,16 @@
 (ns odm.rfc-5646-test
   (:require
     #?@(:clj
-        [[clojure.spec :as s]
-         [clojure.spec.test :as st]
+        [[clojure.spec.alpha :as s]
+         [clojure.spec.test.alpha :as st]
          [clojure.test :refer :all]
          [odm-spec.test-util :refer [given-problems]]]
         :cljs
-        [[cljs.spec :as s]
-         [cljs.spec.test :as st]
+        [[cljs.spec.alpha :as s]
+         [cljs.spec.test.alpha :as st]
          [cljs.test :refer-macros [deftest testing is are]]
          [odm-spec.test-util :refer-macros [given-problems]]])
-         [odm.rfc-5646]))
+         [odm.rfc-5646 :as rfc-5646]))
 
 (st/instrument)
 
@@ -38,12 +38,12 @@
   (testing "Invalid tags"
     (given-problems :rfc-5646/lang-tag "de-419-DE"
       [first :path] := [:region :val :un-m49]
-      [first :pred] := 'char-digit?
+      [first :pred] := `rfc-5646/char-digit?
       [first :val] := \-)
 
     (given-problems :rfc-5646/lang-tag "a-DE"
       [first :path] := [:language]
-      [first :pred] := 'char-alpha?
+      [first :pred] := `rfc-5646/char-alpha?
       [first :val] := \-))
 
   (testing "Generator available"

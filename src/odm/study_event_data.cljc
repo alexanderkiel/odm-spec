@@ -10,8 +10,8 @@
   study event within the containing subject. The ::study-event-repeat-key is
   present if and only if the study event definition is repeating."
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.common]
             [odm.data-formats :as df]
             [odm.form-data :as fd]

@@ -1,7 +1,7 @@
 (ns odm.def
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.data-formats :as df]))
 
 ;; The domain, origin, purpose and comment attributes carry submission

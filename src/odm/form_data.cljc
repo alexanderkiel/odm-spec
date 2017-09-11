@@ -5,8 +5,8 @@
   single study event (for example, when several adverse events are recorded in
   a single patient visit)."
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.common]
             [odm.data-formats :as df]
             [odm.form-def :as f]

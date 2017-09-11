@@ -1,15 +1,16 @@
 (ns odm.file-test
   (:require
     #?@(:clj
-        [[clojure.spec :as s]
-         [clojure.spec.test :as st]
+        [[clojure.spec.alpha :as s]
+         [clojure.spec.test.alpha :as st]
          [clojure.test :refer :all]
          [odm-spec.test-util :refer [given-problems]]]
         :cljs
-        [[cljs.spec :as s]
-         [cljs.spec.test :as st]
+        [[cljs.spec.alpha :as s]
+         [cljs.spec.test.alpha :as st]
          [cljs.test :refer-macros [deftest testing is are]]
          [odm-spec.test-util :refer-macros [given-problems]]])
+         [clojure.string :as str]
          [odm.file]))
 
 (st/instrument)
@@ -72,8 +73,8 @@
   (testing "Missing keys"
     (given-problems :odm/file
       {}
-      [first :pred] := '(contains? % :odm.file/oid)
-      [second :pred] := '(contains? % :odm.file/type)))
+      [first :pred] := `(fn [~'%] (contains? ~'% :odm.file/oid))
+      [second :pred] := `(fn [~'%] (contains? ~'% :odm.file/type))))
 
   (testing "Invalid granularity"
     (given-problems :odm/file
@@ -84,7 +85,7 @@
            :granularity :foo}
       [first :path] := [:odm.file/granularity]
       [first :pred] := #{:all :metadata :admin-data :reference-data
-                     :all-clinical-data :single-site :single-subject}))
+                         :all-clinical-data :single-site :single-subject}))
 
   (testing "Invalid creation date-time"
     (given-problems :odm/file
@@ -93,7 +94,7 @@
            :type :snapshot
            :creation-date-time "2017"}
       [first :path] := [:odm.file/creation-date-time]
-      [first :pred] := 'inst?))
+      [first :pred] := `inst?))
 
   (testing "Invalid prior file OID"
     (given-problems :odm/file
@@ -103,7 +104,7 @@
            :creation-date-time #inst "2017-02-13T07:50:00.000Z"
            :prior-oid ""}
       [first :path] := [:odm.file/prior-oid]
-      [first :pred] := '(complement blank?)))
+      [first :pred] := `(complement str/blank?)))
 
   (testing "Invalid as-of date-time"
     (given-problems :odm/file
@@ -113,7 +114,7 @@
            :creation-date-time #inst "2017-02-13T07:50:00.000Z"
            :as-of-date-time "2017"}
       [first :path] := [:odm.file/as-of-date-time]
-      [first :pred] := 'inst?))
+      [first :pred] := `inst?))
 
   #?(:clj
      (testing "Generator available"

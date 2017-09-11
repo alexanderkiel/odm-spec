@@ -5,8 +5,8 @@
   actual value is given, along with a set of print/display-forms. The CodedValue
   must be an acceptable value of the DataType of the containing CodeList."
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.data-formats :as df]))
 
 ;; Value of the codelist item (as it would occur in clinical data).

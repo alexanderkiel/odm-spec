@@ -1,8 +1,8 @@
 (ns odm.item-group-data
   "3.1.4.1.1.1.1 - ItemGroupData"
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.common]
             [odm.data-formats :as df]
             [odm.item-data]

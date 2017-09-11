@@ -1,8 +1,8 @@
 (ns odm.metadata-version
   "3.1.1.3 - MetaDataVersion"
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.code-list :as cl]
             [odm.condition-def :as c]
             [odm.data-formats :as df]

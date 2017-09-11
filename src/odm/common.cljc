@@ -1,8 +1,8 @@
 (ns odm.common
   "Common ODM Concepts."
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.data-formats :as df]))
 
 (s/def :odm/mandatory

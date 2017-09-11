@@ -1,8 +1,8 @@
 (ns odm.item-ref
   "3.1.1.3.5.1 - ItemRef"
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.common]
             [odm.code-list :as cl]
             [odm.data-formats :as df]

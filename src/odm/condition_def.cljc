@@ -8,8 +8,8 @@
   component which may be omitted under circumstances defined by the condition,
   i.e., when the formal-expression evaluates to true."
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.alias]
             [odm.common]
             [odm.data-formats :as df]

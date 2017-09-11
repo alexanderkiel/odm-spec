@@ -12,8 +12,8 @@
   allowing the same expression to be represented in forms appropriate to
   multiple systems."
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.alias]
             [odm.common]
             [odm.data-formats :as df]

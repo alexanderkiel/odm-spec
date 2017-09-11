@@ -7,8 +7,8 @@
 
   Only numeric items can have measurement units."
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.alias]
             [odm.data-formats :as df]
             [odm-spec.util :as u]))

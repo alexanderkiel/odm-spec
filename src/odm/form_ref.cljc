@@ -1,8 +1,8 @@
 (ns odm.form-ref
   "3.1.1.3.3.1 - FormRef"
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.common]
             [odm.condition-def :as c]
             [odm.form-def :as f]

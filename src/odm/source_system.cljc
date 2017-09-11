@@ -1,8 +1,8 @@
 (ns odm.source-system
   "3.1 ODM - SourceSystem Attribute"
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.data-formats :as df]))
 
 ;; The computer system or database management system that is the source of

@@ -7,15 +7,14 @@
   :min-lein-version "2.6.0"
   :pedantic? :abort
 
-  :plugins [[lein-cljsbuild "1.1.5"]
+  :plugins [[lein-cljsbuild "1.1.7"]
             [lein-doo "0.1.7"]]
 
   :profiles
   {:dev
-   {:dependencies [[criterium "0.4.4"]
-                   [juxt/iota "0.2.2"]
-                   [org.clojure/clojure "1.9.0-alpha15"]
-                   [org.clojure/clojurescript "1.9.521"]
+   {:dependencies [[org.clojars.akiel/iota "0.1"]
+                   [org.clojure/clojure "1.9.0-alpha19"]
+                   [org.clojure/clojurescript "1.9.908"]
                    [org.clojure/test.check "0.9.0"]]}}
 
   :source-paths ["src"]
@@ -28,6 +27,8 @@
      :compiler
      {:output-to "out/testable.js"
       :main odm-spec.runner
-      :optimizations :simple}}}}
+      :optimizations :simple
+      :process-shim false
+      :closure-defines {"goog.DEBUG" false}}}}}
 
   :clean-targets ["target" "out"])

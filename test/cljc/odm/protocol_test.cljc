@@ -1,16 +1,17 @@
 (ns odm.protocol-test
   (:require
     #?@(:clj
-        [[clojure.spec :as s]
-         [clojure.spec.test :as st]
+        [[clojure.spec.alpha :as s]
+         [clojure.spec.test.alpha :as st]
          [clojure.test :refer :all]
          [odm-spec.test-util :refer [given-problems]]]
         :cljs
-        [[cljs.spec :as s]
-         [cljs.spec.test :as st]
+        [[cljs.spec.alpha :as s]
+         [cljs.spec.test.alpha :as st]
          [cljs.test :refer-macros [deftest testing is are]]
          [odm-spec.test-util :refer-macros [given-problems]]])
-         [odm.protocol]))
+         [odm.protocol]
+         [odm-spec.util :as u]))
 
 (st/instrument)
 
@@ -42,7 +43,7 @@
       #:odm.protocol
           {:study-event-refs nil}
       [first :path] := [:odm.protocol/study-event-refs]
-      [first :pred] := 'coll?))
+      [first :pred] := `coll?))
 
   (testing "Duplicate study event ref OIDs"
     (given-problems :odm/protocol
@@ -55,7 +56,7 @@
                 {:study-event-oid "SE01"
                  :odm/mandatory true}]}
       [first :path] := [:odm.protocol/study-event-refs]
-      [first :pred] := '(partial distinct-values? :odm.study-event-ref/study-event-oid)))
+      [first :pred] := `(partial u/distinct-values? :odm.study-event-ref/study-event-oid)))
 
   (testing "Duplicate order numbers in study event refs"
     (given-problems :odm/protocol
@@ -70,13 +71,13 @@
                  :odm/mandatory true
                  :odm/order-number 1}]}
       [first :path] := [:odm.protocol/study-event-refs]
-      [first :pred] := '(distinct-order-numbers? %)))
+      [first :pred] := `(fn [~'%] (u/distinct-order-numbers? ~'%))))
 
   (testing "Invalid aliases"
     (given-problems :odm/protocol
       {:odm/aliases 1}
       [first :path] := [:odm/aliases]
-      [first :pred] := 'coll?))
+      [first :pred] := `coll?))
 
   (testing "Generator available"
     (is (doall (s/exercise :odm/protocol 1)))))

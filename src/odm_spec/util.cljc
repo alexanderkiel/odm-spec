@@ -1,11 +1,11 @@
 (ns odm-spec.util
   (:require
     #?@(:clj
-        [[clojure.spec :as s]
-         [clojure.spec.gen :as gen]]
+        [[clojure.spec.alpha :as s]
+         [clojure.spec.gen.alpha :as gen]]
         :cljs
-        [[cljs.spec :as s]
-         [cljs.spec.impl.gen :as gen]
+        [[cljs.spec.alpha :as s]
+         [cljs.spec.gen.alpha :as gen]
          [goog.string :refer [format]]
          [goog.string.format]])
          [odm.data-formats :as df]))

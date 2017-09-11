@@ -1,8 +1,8 @@
 (ns odm.file
   "3.1 - ODM"
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.clinical-data]
             [odm.data-formats :as df]
             [odm.reference-data]

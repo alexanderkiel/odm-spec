@@ -4,8 +4,8 @@
   Reference data provides information on how to interpret clinical data. For
   example, reference data might include lab normal ranges."
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.data-formats :as df]
             [odm.item-group-data :as igd]
             [odm.metadata-version]

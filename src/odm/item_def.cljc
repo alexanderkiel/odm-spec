@@ -5,8 +5,8 @@
   properties include name, datatype, measurement units, range or codelist
   restrictions, and several other properties."
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.common]
             [odm.code-list-ref]
             [odm.data-formats :as df]

@@ -1,16 +1,17 @@
 (ns odm.study-event-def-test
   (:require
     #?@(:clj
-        [[clojure.spec :as s]
-         [clojure.spec.test :as st]
+        [[clojure.spec.alpha :as s]
+         [clojure.spec.test.alpha :as st]
          [clojure.test :refer :all]
          [odm-spec.test-util :refer [given-problems]]]
         :cljs
-        [[cljs.spec :as s]
-         [cljs.spec.test :as st]
+        [[cljs.spec.alpha :as s]
+         [cljs.spec.test.alpha :as st]
          [cljs.test :refer-macros [deftest testing is are]]
          [odm-spec.test-util :refer-macros [given-problems]]])
-         [odm.study-event-def]))
+         [odm.study-event-def]
+         [odm-spec.util :as u]))
 
 (st/instrument)
 
@@ -32,7 +33,7 @@
            :type :common
            :category nil}
       [first :path] := [:odm.study-event-def/category]
-      [first :pred] := 'string?))
+      [first :pred] := `string?))
 
   (testing "Duplicate form ref OIDs"
     (given-problems :odm/study-event-def
@@ -49,7 +50,7 @@
                 {:form-oid "F01"
                  :odm/mandatory true}]}
       [first :path] := [:odm.study-event-def/form-refs]
-      [first :pred] := '(partial distinct-values? :odm.form-ref/form-oid)))
+      [first :pred] := `(partial u/distinct-values? :odm.form-ref/form-oid)))
 
   (testing "Duplicate order numbers in form refs"
     (given-problems :odm/study-event-def
@@ -68,7 +69,7 @@
                  :odm/mandatory true
                  :odm/order-number 1}]}
       [first :path] := [:odm.study-event-def/form-refs]
-      [first :pred] := '(distinct-order-numbers? %)))
+      [first :pred] := `(fn [~'%] (u/distinct-order-numbers? ~'%))))
 
   (testing "Invalid aliases"
     (given-problems :odm/study-event-def
@@ -79,7 +80,7 @@
            :type :common
            :odm/aliases 1}
       [first :path] := [:odm/aliases]
-      [first :pred] := 'coll?))
+      [first :pred] := `coll?))
 
   (testing "Generator available"
     (is (doall (s/exercise :odm/study-event-def 1)))))

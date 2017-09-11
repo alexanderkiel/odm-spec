@@ -1,8 +1,8 @@
 (ns odm.study
   "3.1.1 Study"
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.data-formats :as df]
             [odm.measurement-unit :as mu]
             [odm.metadata-version :as v]

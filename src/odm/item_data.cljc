@@ -1,9 +1,9 @@
 (ns odm.item-data
   "3.1.4.1.1.1.1.2 - ItemData"
   (:require
-    #?@(:clj  [[clojure.spec :as s]
+    #?@(:clj  [[clojure.spec.alpha :as s]
                [odm-spec.util :refer [item-data-spec*]]]
-        :cljs [[cljs.spec :as s]
+        :cljs [[cljs.spec.alpha :as s]
                [odm-spec.util :refer-macros [item-data-spec*]]])
                [odm.common]
                [odm.data-formats :as df]

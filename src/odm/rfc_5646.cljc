@@ -1,7 +1,7 @@
 (ns odm.rfc-5646
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])))
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])))
 
 (s/def ::to-str
   (s/conformer #(apply str %)))

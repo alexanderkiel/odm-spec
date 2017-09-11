@@ -9,8 +9,8 @@
   have any clinical data. Such studies can serve as \"common metadata
   dictionaries\" -- allowing sharing of metadata across studies."
   (:require
-    #?(:clj [clojure.spec :as s]
-       :cljs [cljs.spec :as s])
+    #?(:clj [clojure.spec.alpha :as s]
+       :cljs [cljs.spec.alpha :as s])
             [odm.alias]
             [odm.common]
             [odm.data-formats :as df]
