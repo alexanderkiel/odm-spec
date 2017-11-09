@@ -1,5 +1,5 @@
 (ns odm.odm
-  (:require [clojure.spec :as s]
+  (:require [clojure.spec.alpha :as s]
             [odm.util :as u]))
 
 (s/def ::file-type #{:snapshot :transactional})

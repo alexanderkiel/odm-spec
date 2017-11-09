@@ -1,5 +1,5 @@
 (ns odm.util
-  (:require [clojure.spec :as s]
+  (:require [clojure.spec.alpha :as s]
             [clojure.string :as str]))
 
 (s/def ::non-blank-string? (s/and string? (complement str/blank?)))

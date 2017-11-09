@@ -1,5 +1,5 @@
 (ns odm
-  (:require [clojure.spec :as s]
+  (:require [clojure.spec.alpha :as s]
             [odm.form-def]
             [odm.item-def]
             [odm.item-group-def]
@@ -12,7 +12,7 @@
 (s/def ::integer integer?)
 
 ;; decimal number with arbitraty precision, same as xs:decimal
-(s/def ::float bigdec?)
+(s/def ::float decimal?)
 
 ;; a instant in time, same as xs:dateTime
 (s/def ::date-time inst?)

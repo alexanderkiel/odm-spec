@@ -1,5 +1,5 @@
 (ns odm.study-test
-  (:require [clojure.spec :as s]
+  (:require [clojure.spec.alpha :as s]
             [clojure.test :refer :all]
             [odm.study]
             [juxt.iota :refer [given]]))
