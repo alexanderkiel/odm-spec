@@ -1,6 +1,7 @@
 (ns odm
-  (:require [clojure.spec :as s]
-            [clojure.string :as str]))
+  (:require
+    [clojure.spec.alpha :as s]
+    [clojure.string :as str]))
 
 ;; ---- Common ----------------------------------------------------------------
 
@@ -10,7 +11,7 @@
 (s/def ::integer integer?)
 
 ;; decimal number with arbitraty precision, same as xs:decimal
-(s/def ::float bigdec?)
+(s/def ::float decimal?)
 
 ;; a instant in time, same as xs:dateTime
 (s/def ::date-time inst?)

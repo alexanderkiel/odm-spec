@@ -1,8 +1,9 @@
 (ns odm-test
-  (:require [clojure.spec :as s]
-            [clojure.test :refer :all]
-            [odm]
-            [juxt.iota :refer [given]]))
+  (:require
+    [clojure.spec.alpha :as s]
+    [clojure.test :refer :all]
+    [odm]
+    [juxt.iota :refer [given]]))
 
 (defmacro given-problems [spec val & body]
   `(given (::s/problems (s/explain-data ~spec ~val))
