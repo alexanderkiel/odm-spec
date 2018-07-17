@@ -33,4 +33,9 @@
       :process-shim false
       :closure-defines {"goog.DEBUG" false}}}}}
 
-  :clean-targets ["target" "out"])
+  :clean-targets ["target" "out"]
+
+  :aliases
+  {"cljs-nashorn-tests" ["doo" "nashorn" "test" "once"]
+   "cljs-phantom-tests" ["doo" "phantom" "test" "once"]
+   "all-tests" ["do" "test," "cljs-nashorn-tests," "cljs-phantom-tests"]})
