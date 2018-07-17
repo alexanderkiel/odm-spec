@@ -7,15 +7,17 @@
   :min-lein-version "2.6.0"
   :pedantic? :abort
 
-  :plugins [[lein-cljsbuild "1.1.7"]
-            [lein-doo "0.1.7"]]
+  :plugins
+  [[lein-cljsbuild "1.1.7"]
+   [lein-doo "0.1.10" :exclusions [org.clojure/clojure]]]
 
   :profiles
   {:dev
-   {:dependencies [[org.clojars.akiel/iota "0.1"]
-                   [org.clojure/clojure "1.9.0-alpha19"]
-                   [org.clojure/clojurescript "1.9.908"]
-                   [org.clojure/test.check "0.9.0"]]}}
+   {:dependencies
+    [[org.clojars.akiel/iota "0.1"]
+     [org.clojure/clojure "1.9.0"]
+     [org.clojure/clojurescript "1.10.339"]
+     [org.clojure/test.check "0.9.0"]]}}
 
   :source-paths ["src"]
   :test-paths ["test/cljc"]
